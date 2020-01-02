@@ -47,7 +47,7 @@ namespace StateMachine.Controllers
         public JsonResult update([FromBody] User user)
         {
             Console.WriteLine(user);
-            return Json("delete working");
+            return Json("update working");
         }
 
 
