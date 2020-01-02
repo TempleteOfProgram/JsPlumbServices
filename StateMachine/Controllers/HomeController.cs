@@ -34,7 +34,8 @@ namespace StateMachine.Controllers
         [HttpGet]
         public IActionResult States()
         {
-            return Ok(dbService.GetStates());
+            string query = "SELECT* FROM dbo.State";
+            return Ok(dbService.GetStates(query));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

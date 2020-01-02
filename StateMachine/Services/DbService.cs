@@ -17,10 +17,11 @@ namespace StateMachine.Services
             
         }
 
-        public List<State> GetStates()
+        public List<State> GetStates(string query)
         {
+            // string query = "SELECT* FROM dbo.State";
             List<State> output = new List<State>();
-            SqlCommand command = new SqlCommand("SELECT * FROM dbo.State", sqlConnection);
+            SqlCommand command = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
             var reader = command.ExecuteReader();
             while (reader.Read())
