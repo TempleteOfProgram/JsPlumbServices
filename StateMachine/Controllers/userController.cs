@@ -10,9 +10,12 @@ using StateMachine.Models;
 
 namespace StateMachine.Controllers
 {
+
+    [Route("/user")]
     public class userController : Controller
     {
         [HttpGet]
+        [Route("login")]
         public JsonResult login(string username, string password)
         { // user/login?username=testuser&password=password
             if (username == null || password == null)
