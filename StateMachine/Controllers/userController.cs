@@ -42,6 +42,22 @@ namespace StateMachine.Controllers
             return Json("working");
         }
 
+        [HttpPut]
+        [Route("update")]
+        public JsonResult update([FromBody] User user)
+        {
+            Console.WriteLine(user);
+            return Json("delete working");
+        }
+
+
+        [HttpDelete]
+        [Route("delete")]
+        public JsonResult delete(string username)
+        {
+            Console.WriteLine("deleting " + username);
+            return Json("delete working");
+        }
 
     }
 }
