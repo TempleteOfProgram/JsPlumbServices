@@ -10,11 +10,12 @@ using Newtonsoft.Json;
 namespace StateMachine.Controllers
 {
     
-    public class loginController : Controller
+public class loginController : Controller       // create a new controller "user" and move both "login" & "signup" inside it 
+                                                // will have same prefix => [Route("/[controller]")] "\n" [ApiController]
     {
-        // login?username=testuser&password=password
+        [HttpGet]
         public JsonResult index(string username, string password)
-        {
+        { // login?username=testuser&password=password
             if (username == null || password == null)
             {
                 return Json("username or password not provided");
@@ -32,6 +33,13 @@ namespace StateMachine.Controllers
                 return Json(user);
 
             }
+        }
+
+        [HttpPost]
+        public JsonResult signUp()
+        {
+
+            return Json("");
         }
     }
 }
