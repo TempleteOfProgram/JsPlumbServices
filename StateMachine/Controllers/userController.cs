@@ -26,11 +26,8 @@ namespace StateMachine.Controllers
                     username = username,
                     password = password
                 };
-
                 //var json = JsonConvert.SerializeObject(user);
-
                 return Json(user);
-
             }
         }
         [HttpPost]
