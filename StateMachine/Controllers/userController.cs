@@ -17,7 +17,7 @@ namespace StateMachine.Controllers
         [HttpGet]
         [Route("login")]
         public JsonResult login(string username, string password)
-        { // user/login?username=testuser&password=password
+        { // https://localhost:5001/user/login?username=testuser&password=password
             if (username == null || password == null)
             {
                 return Json("username or password not provided");
@@ -37,7 +37,7 @@ namespace StateMachine.Controllers
         [HttpPost]
         [Route("signup")]
         public JsonResult signup([FromBody] User user)
-        {  // user/signup  & body = {"usernma": "testuser", "password": "password" }
+        {  // https://localhost:5001/user/signup  & body = {"username": "testuser", "password": "password" }
             Console.WriteLine(user);
             return Json("working");
         }
@@ -45,7 +45,7 @@ namespace StateMachine.Controllers
         [HttpPut]
         [Route("update")]
         public JsonResult update([FromBody] User user)
-        {
+        { // https://localhost:5001/user/update & body = {"username": "testuser", "password": "password" }
             Console.WriteLine(user);
             return Json("update working");
         }
@@ -54,7 +54,7 @@ namespace StateMachine.Controllers
         [HttpDelete]
         [Route("delete")]
         public JsonResult delete(string username)
-        {
+        {  // https://localhost:5001/user/delete?username=testuser1
             Console.WriteLine("deleting " + username);
             return Json("delete working");
         }
