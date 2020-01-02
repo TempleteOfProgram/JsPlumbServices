@@ -33,11 +33,15 @@ namespace StateMachine.Controllers
                 return Json(user);
             }
         }
+
         [HttpPost]
+        [Route("signup")]
         public JsonResult signup([FromBody] User user)
         {  // user/signup  & body = {"usernma": "testuser", "password": "password" }
             Console.WriteLine(user);
             return Json("working");
         }
+
+
     }
 }
