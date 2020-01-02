@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StateMachine.Models;
+using StateMachine.Services;
 
 namespace StateMachine.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
+        private readonly DbService dbService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> _logger, DbService _dbService)
         {
-            _logger = logger;
+            logger = _logger;
+            dbService = _dbService;
         }
 
         public IActionResult Index()
@@ -26,6 +29,12 @@ namespace StateMachine.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult States()
+        {
+            return Ok(dbService.GetStates());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

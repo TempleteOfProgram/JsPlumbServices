@@ -91,7 +91,6 @@ C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\StateMachine.Views.
 C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\StateMachine.Views.pdb
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.dll
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.pdb
-C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.MvcApplicationPartsAssemblyInfo.cache
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.RazorAssemblyInfo.cache
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.RazorAssemblyInfo.cs
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.TagHelpers.input.cache
@@ -106,3 +105,10 @@ C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\Razor\Views\_ViewIm
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.RazorTargetAssemblyInfo.cs
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.Views.pdb
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.MvcApplicationPartsAssemblyInfo.cache
