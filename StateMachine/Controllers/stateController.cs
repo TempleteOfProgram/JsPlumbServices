@@ -28,8 +28,8 @@ namespace StateMachine.Controllers
         [Route("SaveWorkflow")]
         public JsonResult SaveWorkflow([FromBody] WorkflowModel model)
         {
-            Console.WriteLine(user);
-            return Json("State has been successfully updated");
+            this.dbservice.SaveWorkflow(model);
+            return Json("State has been Added");
         }
 
 

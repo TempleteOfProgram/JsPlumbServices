@@ -43,15 +43,20 @@ namespace StateMachine.Services
             bool bValid = false;
 
             string sSQL = string.Empty;
+            
             if (model.WorkflowId > 0)
             {
-                sSQL = "UPDATE Workflow SET JSON = '" + model.JSON + "' WHERE WorkflowId = " + model.WorkflowId.ToString() + "";
+                sSQL = "UPDATE dbo.Workflow SET JSON = '" + model + "' WHERE WorkflowId = " + model.WorkflowId.ToString() + "";
             }
             else
             {
-                sSQL = "INSERT INTO Workflow (JSON) VALUES ('" + model.JSON + "')";
+            sSQL = "INSERT INTO dbo.Workflow (JSON) VALUES ('" + model + "')";
             }
             
+
+            //Console.WriteLine(model.JSON);
+            //sSQL = "INSERT INTO dbo.Workflow (JSON) VALUES ('" + model + "')";
+           
             sqlConnection.Open();            
             SqlCommand command = new SqlCommand(sSQL, sqlConnection);
             command.ExecuteNonQuery();             
