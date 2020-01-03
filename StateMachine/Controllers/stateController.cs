@@ -24,6 +24,14 @@ namespace StateMachine.Controllers
             return Json("Welcome to state-machine api");
         }
 
+        [HttpGet]
+        [Route("getWorkflow")]
+        public JsonResult getWorkflow(int id)
+        {
+            this.dbservice.GetWorkflow(id);
+            return Json("working");
+        }
+
         [HttpPost]
         [Route("SaveWorkflow")]
         public JsonResult SaveWorkflow([FromBody] WorkflowModel model)
@@ -31,26 +39,27 @@ namespace StateMachine.Controllers
             this.dbservice.SaveWorkflow(model);
             return Json("State has been Added");
         }
+        
 
-
-        [HttpGet]
-        [Route("getWorkflow")]
-        public JsonResult getWorkflow()
+        [HttpPut]
+        [Route("updateWorkflow")]
+        public JsonResult updateWorkflow([FromBody] WorkflowModel model)
         {
-            string query = "SELECT* FROM dbo.Workflow";
-            Console.WriteLine(this.dbservice.GetWorkflow(query));
+            this.dbservice.updateWorkflow(model);
+            //Console.WriteLine(model.WorkflowId);
+            return Json("State has been Updated");
+        }
+
+      
+        
+        [HttpDelete]
+        [Route("deleteWorkflow")]
+        public JsonResult deleteWorkflow(int id)
+        {
+            this.dbservice.deleteWorkflow(id);
             return Json("working");
-            //return Ok(this.dbservice.GetWorkflow(query));
         }
+    
 
-        /**
-        [HttpGet]
-        [Route("getState")]
-        public IActionResult States()
-        {
-            string query = "SELECT* FROM dbo.Nodes";
-            return Ok(this.dbservice.GetStates(query));
-        }
-        **/
     }
 }
