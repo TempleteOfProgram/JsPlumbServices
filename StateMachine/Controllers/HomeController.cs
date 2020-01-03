@@ -34,7 +34,7 @@ namespace StateMachine.Controllers
         [HttpGet]
         public IActionResult States()
         {
-            string query = "SELECT* FROM dbo.State";
+            string query = "SELECT* FROM dbo.Nodes";
             return Ok(dbService.GetStates(query));
         }
 

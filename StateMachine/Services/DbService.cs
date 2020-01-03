@@ -17,23 +17,22 @@ namespace StateMachine.Services
             
         }
 
-        public List<State> GetStates(string query)
+        public List<node> GetStates(string query)
         {
-            // string query = "SELECT* FROM dbo.State";
-            List<State> output = new List<State>();
+            // string query = "SELECT* FROM dbo.Nodes";
+            List<node> output = new List<node>();
             SqlCommand command = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
             var reader = command.ExecuteReader();
             while (reader.Read())
             {
-                var state = new State
+                var Node = new node
                 {
-                    StateId = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    Description = reader.GetString(2),
-                    IsActive = reader.GetBoolean(3)
+                    id = reader.GetString(0),
+                    top = reader.GetInt32(1),
+                    left = reader.GetInt32(2)
                 };
-                output.Add(state);
+                output.Add(Node);
             }
             sqlConnection.Close();
             return output;

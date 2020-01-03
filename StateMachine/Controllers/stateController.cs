@@ -36,7 +36,7 @@ namespace StateMachine.Controllers
         [Route("getState")]
         public IActionResult States()
         {
-            string query = "SELECT* FROM dbo.State";
+            string query = "SELECT* FROM dbo.Nodes";
             return Ok(this.dbservice.GetStates(query));
         }
     }

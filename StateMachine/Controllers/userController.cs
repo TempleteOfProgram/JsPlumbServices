@@ -15,7 +15,7 @@ namespace StateMachine.Controllers
     public class userController : Controller
     {
         [HttpGet]
-        [Route("login")]
+        [Route("login/")]
         public JsonResult login(string username, string password)
         { // https://localhost:5001/user/login?username=testuser&password=password
             if (username == null || password == null)
