@@ -10,7 +10,7 @@ using StateMachine.Services;
 
 namespace StateMachine.Controllers
 {
-    [Route("state/")]
+    [Route("workflow/")]
     [ApiController]
     public class stateController : Controller
     {

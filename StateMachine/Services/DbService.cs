@@ -34,7 +34,7 @@ namespace StateMachine.Services
             }
             **/
             var data = JsonConvert.SerializeObject(model.JSON).Replace("'", "\"");
-            sSQL = $"INSERT INTO dbo.tusharWorkflow (workflowID,data) VALUES (5, '{data}')";
+            sSQL = $"INSERT INTO dbo.tusharWorkflow (workflowID,data) VALUES ({model.WorkflowId}, '{data}')";
   
             sqlConnection.Open();            
             SqlCommand command = new SqlCommand(sSQL, sqlConnection);
@@ -48,7 +48,6 @@ namespace StateMachine.Services
         {
             List<WorkflowModel> output = new List<WorkflowModel>();
             string query = $"SELECT * FROM dbo.tusharWorkflow where workflowID = {id}";
-            Console.WriteLine(query);
            
             SqlCommand command = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
