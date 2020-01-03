@@ -31,13 +31,6 @@ namespace StateMachine.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult States()
-        {
-            string query = "SELECT* FROM dbo.Nodes";
-            return Ok(dbService.GetStates(query));
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

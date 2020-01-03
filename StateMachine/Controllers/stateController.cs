@@ -33,14 +33,17 @@ namespace StateMachine.Controllers
         }
 
 
-        [HttpPost]
-        [Route("updateState")]
-        public JsonResult updateState([FromBody] User user)
+        [HttpGet]
+        [Route("getWorkflow")]
+        public JsonResult getWorkflow()
         {
-            Console.WriteLine(user);
-            return Json("State has been successfully updated");
+            string query = "SELECT* FROM dbo.Workflow";
+            Console.WriteLine(this.dbservice.GetWorkflow(query));
+            return Json("working");
+            //return Ok(this.dbservice.GetWorkflow(query));
         }
 
+        /**
         [HttpGet]
         [Route("getState")]
         public IActionResult States()
@@ -48,5 +51,6 @@ namespace StateMachine.Controllers
             string query = "SELECT* FROM dbo.Nodes";
             return Ok(this.dbservice.GetStates(query));
         }
+        **/
     }
 }

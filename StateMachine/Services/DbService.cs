@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using StateMachine.Models;
 
+using Newtonsoft.Json;
+
 namespace StateMachine.Services
 {
     public class DbService
@@ -17,23 +19,25 @@ namespace StateMachine.Services
             
         }
 
-        public List<node> GetStates(string query)
+        public List<WorkflowModel> GetWorkflow(string query)
         {
-            // string query = "SELECT* FROM dbo.Nodes";
-            List<node> output = new List<node>();
+            // string query = "SELECT* FROM dbo.Workflow";
+            List<WorkflowModel> output = new List<WorkflowModel>();
             SqlCommand command = new SqlCommand(query, sqlConnection);
             sqlConnection.Open();
             var reader = command.ExecuteReader();
+            Console.WriteLine(reader.GetInt32(0)) ;
+            /**
             while (reader.Read())
             {
-                var Node = new node
+                var WorkflowModel_ = new WorkflowModel
                 {
-                    id = reader.GetString(0),
-                    top = reader.GetInt32(1),
-                    left = reader.GetInt32(2)
+                    JSON = reader.GetString(4),
+                    WorkflowId = reader.GetInt32(1),
                 };
-                output.Add(Node);
+                output.Add(WorkflowModel_);
             }
+            **/
             sqlConnection.Close();
             return output;
         }
@@ -43,25 +47,25 @@ namespace StateMachine.Services
             bool bValid = false;
 
             string sSQL = string.Empty;
-            
+            /**
             if (model.WorkflowId > 0)
             {
-                sSQL = "UPDATE dbo.Workflow SET JSON = '" + model + "' WHERE WorkflowId = " + model.WorkflowId.ToString() + "";
+                sSQL = "UPDATE dbo.tusharWorkflow SET JSON = '" + model + "' WHERE WorkflowId = " + model.WorkflowId.ToString() + "";
             }
             else
             {
-            sSQL = "INSERT INTO dbo.Workflow (JSON) VALUES ('" + model + "')";
+                sSQL = "INSERT INTO dbo.tusharWorkflow (workflowID,data) VALUES ('" + model + "')";
             }
-            
-
-            //Console.WriteLine(model.JSON);
-            //sSQL = "INSERT INTO dbo.Workflow (JSON) VALUES ('" + model + "')";
-           
+            **/
+            var data = JsonConvert.SerializeObject(model.JSON).Replace("'", "\"");
+            sSQL = $"INSERT INTO dbo.tusharWorkflow (workflowID,data) VALUES (5, '{data}')";
+  
             sqlConnection.Open();            
             SqlCommand command = new SqlCommand(sSQL, sqlConnection);
             command.ExecuteNonQuery();             
             sqlConnection.Close();
             bValid = true;
+            
             return bValid;
         }
     }
