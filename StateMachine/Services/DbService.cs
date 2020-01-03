@@ -37,5 +37,27 @@ namespace StateMachine.Services
             sqlConnection.Close();
             return output;
         }
+
+        public bool SaveWorkflow(WorkflowModel model)
+        {
+            bool bValid = false;
+
+            string sSQL = string.Empty;
+            if (model.WorkflowId > 0)
+            {
+                sSQL = "UPDATE Workflow SET JSON = '" + model.JSON + "' WHERE WorkflowId = " + model.WorkflowId.ToString() + "";
+            }
+            else
+            {
+                sSQL = "INSERT INTO Workflow (JSON) VALUES ('" + model.JSON + "')";
+            }
+            
+            sqlConnection.Open();            
+            SqlCommand command = new SqlCommand(sSQL, sqlConnection);
+            command.ExecuteNonQuery();             
+            sqlConnection.Close();
+            bValid = true;
+            return bValid;
+        }
     }
 }
