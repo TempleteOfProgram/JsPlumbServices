@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+using Newtonsoft.Json;
 using StateMachine.Models;
 using StateMachine.Services;
 
@@ -24,12 +25,11 @@ namespace StateMachine.Controllers
             return Json("Welcome to state-machine api");
         }
 
-        [HttpGet]
+        [HttpPut]
         [Route("getWorkflow")]
         public JsonResult getWorkflow(int id)
         {
-            this.dbservice.GetWorkflow(id);
-            return Json("working");
+            return Json(this.dbservice.GetWorkflow(id));
         }
 
         [HttpPost]
@@ -37,29 +37,40 @@ namespace StateMachine.Controllers
         public JsonResult SaveWorkflow([FromBody] WorkflowModel model)
         {
             this.dbservice.SaveWorkflow(model);
-            return Json("State has been Added");
+            // return Json("State has been Added");
+            var response = new Status
+            {
+                code = 200,
+                message=$"workflow {model.WorkflowId} saved successfully."
+            };
+            return Json(response) ;
         }
         
-
-        [HttpPut]
-        [Route("updateWorkflow")]
-        public JsonResult updateWorkflow([FromBody] WorkflowModel model)
-        {
-            this.dbservice.updateWorkflow(model);
-            //Console.WriteLine(model.WorkflowId);
-            return Json("State has been Updated");
-        }
-
-      
         
         [HttpDelete]
         [Route("deleteWorkflow")]
         public JsonResult deleteWorkflow(int id)
         {
             this.dbservice.deleteWorkflow(id);
-            return Json("working");
+            return Json($"workflow deleted where id = {id}");
         }
-    
+
+        /**
+        [HttpPut]
+        [Route("updateWorkflow")]
+        public JsonResult updateWorkflow([FromBody] WorkflowModel model)
+        {
+            this.dbservice.updateWorkflow(model);
+            // Console.WriteLine(this.dbservice);
+            var response = new Status
+            {
+                code = 200,
+                message = $"workflow {model.WorkflowId} updated successfully."
+            };
+            return Json(response);
+        }
+        **/
+
 
     }
 }

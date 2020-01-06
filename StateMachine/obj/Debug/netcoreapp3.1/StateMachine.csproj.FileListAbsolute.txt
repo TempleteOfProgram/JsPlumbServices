@@ -111,4 +111,6 @@ C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win-x64\na
 C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\PruTech\StateMachine\StateMachine\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\PruTech\StateMachine\StateMachine\obj\Debug\netcoreapp3.1\StateMachine.MvcApplicationPartsAssemblyInfo.cache
