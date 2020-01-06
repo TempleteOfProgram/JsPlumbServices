@@ -21,15 +21,34 @@ namespace StateMachine.Controllers
         [Route("")]
         public JsonResult welocme()
         {
-            Console.WriteLine(this.dbservice);
-            return Json("Welcome to state-machine api");
+            //Console.WriteLine(this.dbservice);
+            var response = new Status
+            {
+                code = 200,
+                message = $"welcome to workflow api."
+            };
+            return Json(response);
         }
 
-        [HttpPut]
+        [HttpGet]
         [Route("getWorkflow")]
         public JsonResult getWorkflow(int id)
         {
-            return Json(this.dbservice.GetWorkflow(id));
+            
+            var response = this.dbservice.GetWorkflow(id);
+            if (response.Count() == 0)
+            {
+                var res = new Status
+                {
+                    code = 404,
+                    message = "workflow not found"
+                };
+                return Json(res);
+            }
+            else
+            {
+                return Json(response);
+            }   
         }
 
         [HttpPut]
@@ -52,7 +71,12 @@ namespace StateMachine.Controllers
         public JsonResult deleteWorkflow(int id)
         {
             this.dbservice.deleteWorkflow(id);
-            return Json($"workflow deleted where id = {id}");
+            var response = new Status
+            {
+                code = 200,
+                message = $"workflow deleted where id = {id}."
+            };
+            return Json(response);
         }
 
         /**
