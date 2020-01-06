@@ -32,7 +32,7 @@ namespace StateMachine.Controllers
             return Json(this.dbservice.GetWorkflow(id));
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("SaveWorkflow")]
         public JsonResult SaveWorkflow([FromBody] WorkflowModel model)
         {
