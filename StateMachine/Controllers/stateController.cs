@@ -47,7 +47,7 @@ namespace StateMachine.Controllers
             }
             else
             {
-                return Json(response);
+                return Json(response.FirstOrDefault());
             }   
         }
 
@@ -79,6 +79,25 @@ namespace StateMachine.Controllers
             return Json(response);
         }
 
+        [HttpGet]
+        [Route("AllWorkflows")]
+        public JsonResult GetWorkflowName()
+        {
+            var response = this.dbservice.GetWorkflowNames();
+            if (response.Count() == 0)
+            {
+                var res = new Status
+                {
+                    code = 404,
+                    message = "workflow not found"
+                };
+                return Json(res);
+            }
+            else
+            {
+                return Json(response);
+            }
+        }
         /**
         [HttpPut]
         [Route("updateWorkflow")]

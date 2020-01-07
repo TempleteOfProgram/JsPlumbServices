@@ -10,8 +10,13 @@ namespace StateMachine.Models
         public int WorkflowId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string workflow { get; set; }
-
+        public string Workflow { get; set; }
+        /*
+        workflowId ?: number;
+        Name ?: string;
+        Descriptiion ?: string;
+        JSON       ?: string;
+        */
     }
 }
 
